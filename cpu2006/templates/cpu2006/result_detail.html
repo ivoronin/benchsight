@@ -1,0 +1,120 @@
+{% extends 'bootstrap3/bootstrap3.html' %}
+{% load bootstrap3 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{% block bootstrap3_title %}
+SPEC CPU 2006 - {{ object.hardware_vendor }}  {{ object.system }}
+{% endblock %}
+
+{% block bootstrap3_content %}
+<style>
+body {
+  padding-top: 50px;
+}
+</style>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url 'cpu2006:results_list' %}">{% bootstrap_icon "stats" %} SPEC CPU 2006</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="page-header">
+    <h1>{{ object.hardware_vendor }} {{ object.system }}</h1>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+      <h2>System Information</h2>
+      <dl class="dl-horizontal">
+        <dt>Hardware Vendor</dt>
+        <dd>{{ object.hardware_vendor }}</dd>
+        <dt>System</dt>
+        <dd>{{ object.system }}</dd>
+        <dt>Result</dt>
+        <dd>{{ object.result }}</dd>
+        <dt>Baseline</dt>
+        <dd>
+          <strong>{{ object.baseline }}</strong>
+        </dd>
+        <dt>CPU(s) Orderable</dt>
+        <dd>{{ object.cpus_orderable }}</dd>
+        <dt>Operating System</dt>
+        <dd>{{ object.operating_system }}</dd>
+        <dt>Compiler</dt>
+        <dd>{{ object.compiler }}</dd>
+      </dl>
+
+      <h2>Test Information</h2>
+      <dl class="dl-horizontal">
+        <dt>Benchmark</dt>
+        <dd>{{ object.benchmark }}</dd>
+        <dt>H/W Availability</dt>
+        <dd>{{ object.hw_avail }}</dd>
+        <dt>S/W Availability</dt>
+        <dd>{{ object.sw_avail }}</dd>
+        <dt>Tested By</dt>
+        <dd>{{ object.tested_by }}</dd>
+        <dt>Test Sponsor</dt>
+        <dd>{{ object.test_sponsor }}</dd>
+        <dt>Test Date</dt>
+        <dd>{{ object.test_date }}</dd>
+        <dt>Publication Date</dt>
+        <dd>{{ object.published }}</dd>
+        <dt>Update date</dt>
+        <dd>{{ object.updated }}</dd>
+      </dl>
+    </div>
+
+    <div class="col-md-6">
+      <h2>Hardware Information</h2>
+      <dl class="dl-horizontal">
+        <dt># Chips</dt>
+        <dd>{{ object.num_chips }}</dd>
+        <dt># Cores</dt>
+        <dd>{{ object.num_cores }}</dd>
+        <dt># Cores Per Chip</dt>
+        <dd>{{ object.num_cores_per_chip }}</dd>
+        <dt># Threads Per Core</dt>
+        <dd>{{ object.num_threads_per_core }}</dd>
+        <dt>CPU Model</dt>
+        <dd>{{ object.processor }}</dd>
+        <dt>CPU GHz</dt>
+        <dd>{{ object.processor_mhz }}</dd>
+        <dt>CPU Characteristics</dt>
+        <dd>{{ object.processor_characteristics }}</dd>
+        <dt>Auto Parallelization</dt>
+        <dd>{{ object.auto_parallelization }}</dd>
+        <dt>Base pointer size</dt>
+        <dd>{{ object.base_pointer_size }}</dd>
+        <dt>Peak pointer size</dt>
+        <dd>{{ object.peak_pointer_size }}</dd>
+        <dt>1st Level Cache</dt>
+        <dd>{{ object.first_level_cache }}</dd>
+        <dt>2nd Level Cache</dt>
+        <dd>{{ object.second_level_cache }}</dd>
+        <dt>3rd Level Cache</dt>
+        <dd>{{ object.third_level_cache }}</dd>
+        <dt>Other Level Cache</dt>
+        <dd>{{ object.other_cache }}</dd>
+        <dt>RAM</dt>
+        <dd>{{ object.memory }}</dd>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <p class="text-muted">All results are sourced from the <a href="http://www.spec.org/">Standard Performance Evaluation Corporation</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+{% endblock %}
