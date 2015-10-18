@@ -12,4 +12,5 @@ $ python manage.py cpu2006_import
 $ python manage.py runserver
 ```
 
-
+## Hosted version
+http://benchsight.azurewebsites.net/
